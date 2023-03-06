@@ -1,0 +1,42 @@
+const express = require('express')
+const router = express.Router()
+const { body, validationResult } = require('express-validator')
+const { getUsers, register, login } = require('../controllers/userController')
+const User = require('../models/userModel')
+// Routes
+router.get('/', getUsers)
+router.post(
+  '/register',
+  body('name', '-m- name is required').not().isEmpty().trim(),
+  body('username', '-m- username is required')
+    .not()
+    .isEmpty()
+    .trim()
+    .custom(async (value) => {
+      const user = await User.findOne({ username: value })
+      if (user) {
+        return Promise.reject('username is not available')
+      }
+    }),
+
+  body('email', '-m- email is required')
+    .isEmail()
+    .normalizeEmail()
+    .trim()
+    .custom(async (value) => {
+      const user = await User.findOne({ email: value })
+      if (user) {
+        return Promise.reject('Email Already in use Must be unique')
+      }
+    }),
+
+  body('password', '-m- password is required')
+    .not()
+    .isEmpty()
+    .matches(/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/gm),
+  register
+)
+router.post('/login', login)
+// router.post('/logout', logout)
+
+module.exports = router
