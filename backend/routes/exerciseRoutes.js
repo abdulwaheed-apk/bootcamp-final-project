@@ -11,14 +11,15 @@ const verifyToken = require('../middlewares/auth')
 
 router.post(
   '/',
+  verifyToken,
   body('exerciseName', '-m- Exercise Name is required').not().isEmpty().trim(),
   body('details', '-m- Exercise details is required').trim().escape(),
   createExercise
 )
 router.get('/', verifyToken, getExercises)
-router.put('/:exerciseId', editExercise)
-// router.patch('/:exerciseId', editExercise)
-router.delete('/:exerciseId', deleteExercise)
-router.get('/:type', getExercisesByType)
+router.put('/:exerciseId', verifyToken, editExercise)
+// router.patch('/:exerciseId',verifyToken, editExercise)
+router.delete('/:exerciseId', verifyToken, deleteExercise)
+router.get('/:type', verifyToken, getExercisesByType)
 
 module.exports = router

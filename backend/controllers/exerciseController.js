@@ -1,7 +1,7 @@
 const express = require('express')
 const asyncHandler = require('express-async-handler')
 const Exercise = require('../models/exerciseModel')
-
+const { validationResult } = require('express-validator')
 //! Controller Functions
 
 //@route POST /api/exercises
@@ -15,6 +15,17 @@ const createExercise = asyncHandler(async (req, res) => {
     return res.status(400).json({ errors: errors.array() })
   }
   // create exercise
+  // req.user is coming from verifyToken middleware
+  // console.log(req.user)
+  const exercise = await Exercise.create({
+    userId: req.user.id,
+    exerciseName,
+    exerciseType,
+    duration,
+    date,
+    details,
+  })
+  res.status(201).json(exercise)
 })
 
 //@route GET /api/exercises

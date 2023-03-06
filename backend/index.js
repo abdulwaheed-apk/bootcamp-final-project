@@ -7,6 +7,7 @@ const cookieParser = require('cookie-parser')
 // configuration
 const app = express()
 const connectDB = require('./config/connectDatabase')
+const verifyToken = require('./middlewares/auth')
 app.use(cookieParser())
 //
 app.use(express.json())
@@ -19,7 +20,6 @@ app.get('/', async (req, res) => {
 
 app.use('/api/users', require('./routes/userRoutes'))
 app.use('/api/exercises', require('./routes/exerciseRoutes'))
-
 const port = process.env.PORT || 8000
 app.listen(port, async (req, res) => {
   console.log(`Server started at http://localhost:${port}`.cyan.underline)
