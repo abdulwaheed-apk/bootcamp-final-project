@@ -18,7 +18,7 @@ router.post(
 )
 router.get('/', verifyToken, getExercises)
 router.put('/:exerciseId', verifyToken, editExercise)
-// router.patch('/:exerciseId',verifyToken, editExercise)
+router.patch('/:exerciseId', verifyToken, editExercise)
 router.delete('/:exerciseId', verifyToken, deleteExercise)
 router.get('/:type', verifyToken, getExercisesByType)
 

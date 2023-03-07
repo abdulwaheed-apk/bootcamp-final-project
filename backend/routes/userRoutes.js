@@ -8,7 +8,10 @@ router.get('/', getUsers)
 router.post(
   '/register',
   body('name', '-m- name is required').not().isEmpty().trim(),
-  body('username', '-m- username is required')
+  body(
+    'username',
+    '-m- username is required and must contain at lest 8 characters total including at leat 1 number, one symbol, one small and capital letter,'
+  )
     .not()
     .isEmpty()
     .trim()

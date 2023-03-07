@@ -76,6 +76,6 @@ const login = asyncHandler(async (req, res) => {
 })
 // Token Generate Function
 const generateToken = async (id) => {
-  return jwt.sign({ id }, process.env.JWT_SECRET, { expiresIn: '1h' })
+  return jwt.sign({ id }, process.env.JWT_SECRET, { expiresIn: '7h' })
 }
 module.exports = { getUsers, register, login }
