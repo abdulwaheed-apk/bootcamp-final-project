@@ -74,8 +74,15 @@ const login = asyncHandler(async (req, res) => {
     throw new Error('Invalid Credentials')
   }
 })
+//@route /api/users/profileUpdate
+//@method PUT
+//@access Private
+const profileUpdate = asyncHandler(async (req, res) => {
+  res.send('profile Update')
+})
+
 // Token Generate Function
 const generateToken = async (id) => {
   return jwt.sign({ id }, process.env.JWT_SECRET, { expiresIn: '7h' })
 }
-module.exports = { getUsers, register, login }
+module.exports = { getUsers, register, login, profileUpdate }

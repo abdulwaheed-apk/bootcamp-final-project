@@ -3,6 +3,7 @@ const asyncHandler = require('express-async-handler')
 const Exercise = require('../models/exerciseModel')
 const User = require('../models/userModel')
 const { validationResult } = require('express-validator')
+
 //! Controller Functions
 
 //@route POST /api/exercises
@@ -30,7 +31,7 @@ const createExercise = async (req, res) => {
     res.status(201).json(exercise)
   } catch (error) {
     res.status(400)
-    throw new Error({ message: error.message })
+    throw Error({ message: error.message })
   }
 }
 
@@ -77,8 +78,9 @@ const editExercise = async (req, res) => {
     // console.log(user)
     // Now update exercise
     const updatedExercise = await Exercise.findByIdAndUpdate(
-      req.params.exerciseId,
-      req.body
+      { _id: req.params.exerciseId },
+      req.body,
+      { new: true, runValidators: true }
     )
     res.status(200).json(updatedExercise)
   } catch (error) {
@@ -111,11 +113,12 @@ const deleteExercise = async (req, res) => {
   console.log(removedExercise)
   res.status(200).json({ message: 'Exercise Removed', removedExercise })
 }
-
+// todo Create This endpoint
 //@route GET /api/exercises/:type
 //@desc Get exercise By Type
 //@access Private
 const getExercisesByType = async (req, res) => {
+  // res.json({ type22: req.params.type })
   res.send('getExercisesByType')
 }
 
