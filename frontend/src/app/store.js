@@ -1,7 +1,7 @@
 import { configureStore } from '@reduxjs/toolkit'
-import exerciseReducer from '../features/exercises/exerciseSlice'
+import authReducer from '../features/auth/authSlice'
 export default configureStore({
   reducer: {
-    exercise: exerciseReducer,
+    auth: authReducer,
   },
 })

@@ -3,9 +3,10 @@ const dotenv = require('dotenv').config()
 const mongoose = require('mongoose')
 const colors = require('colors')
 const cookieParser = require('cookie-parser')
-
+var cors = require('cors')
 // configuration
 const app = express()
+app.use(cors())
 const connectDB = require('./config/connectDatabase')
 const verifyToken = require('./middlewares/auth')
 app.use(cookieParser())
@@ -17,6 +18,9 @@ connectDB()
 app.get('/', async (req, res) => {
   res.send('Hello')
 })
+// app.get('/dashboard', verifyToken, async (req, res) => {
+//   res.send('Hello dashboard')
+// })
 
 app.use('/api/users', require('./routes/userRoutes'))
 app.use('/api/exercises', require('./routes/exerciseRoutes'))
