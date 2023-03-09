@@ -1,7 +1,6 @@
 import { Link, useNavigate } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import { logout, reset } from '../features/auth/authSlice'
-import { useEffect } from 'react'
 const Header = () => {
   const dispatch = useDispatch()
   const navigate = useNavigate()
@@ -16,7 +15,7 @@ const Header = () => {
   return (
     <>
       <header className='sticky z-40 top-0 right-0 left-0 py-4 px-4 border-b border-[#E8EAED] max-h-16 bg-white shadow-sm'>
-        <nav className='max-w-7xl mx-auto flex justify-between items-center overflow-x-hidden'>
+        <nav className='max-w-7xl mx-auto flex justify-between items-center overflow-hidden'>
           <h2 className='flex-auto'>
             <Link
               to='/'

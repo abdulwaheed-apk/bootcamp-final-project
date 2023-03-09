@@ -1,12 +1,30 @@
-import { useState } from 'react'
-import { Link } from 'react-router-dom'
+import { useState, useEffect } from 'react'
+import { Link, useNavigate } from 'react-router-dom'
+import { useDispatch, useSelector } from 'react-redux'
+import { toast } from 'react-toastify'
+import { reset, login } from '../features/auth/authSlice'
+import Spinner from '../components/Spinner'
 function Login() {
   const [formData, setFormData] = useState({
     email: '',
     password: '',
   })
   const { email, password } = formData
-
+  const navigate = useNavigate()
+  const dispatch = useDispatch()
+  const { user, isLoading, isError, isSuccess, message } = useSelector(
+    (state) => state.auth
+  )
+  // Side effects
+  useEffect(() => {
+    if (isError) {
+      toast.error(message)
+    }
+    if (isSuccess || user) {
+      navigate('/dashboard')
+    }
+    dispatch(reset())
+  }, [user, isSuccess, isError, message, dispatch, navigate])
   // Handle Change
   const handleChange = (e) => {
     setFormData((prev) => ({ ...prev, [e.target.name]: e.target.value }))
@@ -14,7 +32,16 @@ function Login() {
   // Handle Change
   const handleSubmit = (e) => {
     e.preventDefault()
-    console.log('formData', formData)
+    // console.log('formData', formData)
+    // we can also send formData to login function as payload but as we had destructured above so it is good idea to make again object and all values to object instead to single input values(email and password) or formData
+    const userData = {
+      email,
+      password,
+    }
+    dispatch(login(userData))
+  }
+  if (isLoading) {
+    return <Spinner />
   }
   return (
     <>
@@ -30,7 +57,6 @@ function Login() {
             </Link>
           </div>
         </div>
-
         <div className='pt-1 pb-0 px-6'>
           <form action='' method='post' onSubmit={handleSubmit}>
             <div>
