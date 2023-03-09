@@ -62,7 +62,12 @@ function Register() {
           </div>
         </div>
         <div className='pt-1 pb-0 px-6'>
-          <form action='' method='post' onSubmit={handleSubmit}>
+          <form
+            action=''
+            method='post'
+            onSubmit={handleSubmit}
+            autoComplete='off'
+          >
             <div>
               <fieldset className='border border-[#212b36] py-0 px-2 my-2 rounded-lg focus:border-[#21C065]'>
                 <legend className='px-2 font-normal'>Full Name</legend>

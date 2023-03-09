@@ -5,7 +5,7 @@ function Home() {
     <>
       <main className='container max-w-7xl py-16 px-4 mx-auto flex justify-between items-center'>
         <div>
-          <h1 className='font-bold normal-case text-6xl max-w-xl leading-snug tracking-tight mb-2'>
+          <h1 className='font-bold normal-case text-6xl max-w-xl leading-tight tracking-tight mb-2'>
             Let us manage and track your activities, you
             <span className='text-[#21C065]'> Focus On Keep Going</span>.
           </h1>
@@ -22,7 +22,12 @@ function Home() {
           </div>
         </div>
         <div className='md:w-1/2 pl-12'>
-          <div className='bg-c-img max-w-lg ml-auto'></div>
+          <div className='max-w-lg ml-auto'>
+            <img
+              src='../../public/undraw_activity_tracker.svg'
+              alt='Activity Tracker'
+            />
+          </div>
         </div>
       </main>
     </>
