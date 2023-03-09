@@ -95,6 +95,7 @@ function Register() {
                   onChange={handleChange}
                   placeholder='muhammad.ali17'
                   className='bg-white autofill:bg-white focus:outline-none rounded-lg block w-full text-gray-500 font-normal px-3 py-3 my-0 '
+                  autofill='false'
                 />
               </fieldset>
               <fieldset className='border border-[#212b36] py-1 px-2 my-2 rounded-lg focus:border-[#21C065]'>
