@@ -12,6 +12,8 @@ body {
     font-family: 'Jost', sans-serif;
 }
 
+@layer components {}
+
 .loadingSpinnerContainer {
     position: fixed;
     top: 0;

@@ -1,8 +1,10 @@
 import { useEffect } from 'react'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, Outlet } from 'react-router-dom'
 import { useSelector } from 'react-redux'
 import Sidebar from '../components/Sidebar'
+import Header from '../components/Header'
 
+//
 function Dashboard() {
   const navigate = useNavigate()
   const { user } = useSelector((state) => state.auth)
@@ -13,7 +15,13 @@ function Dashboard() {
   }, [user, navigate])
   return (
     <>
-      <Sidebar />
+      <Header />
+      <section className='flex items-center space-x-4'>
+        <Sidebar />
+        <section className='bg-white'>
+          <Outlet />
+        </section>
+      </section>
     </>
   )
 }

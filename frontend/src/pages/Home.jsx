@@ -1,13 +1,15 @@
 import { Link } from 'react-router-dom'
+import Header from '../components/Header'
 
 function Home() {
   return (
     <>
-      <main className='container max-w-7xl py-16 px-4 mx-auto flex justify-between items-center'>
+      <Header />
+      <main className='container max-w-7xl py-16 px-4 mx-auto flex flex-col-reverse md:flex-row justify-between items-center'>
         <div>
-          <h1 className='font-bold normal-case text-6xl max-w-xl leading-tight tracking-tight mb-2'>
+          <h1 className='font-bold normal-case text-4xl md:text-6xl max-w-xl leading-tight tracking-tight mb-2'>
             Let us manage and track your activities, you
-            <span className='text-[#21C065]'> Focus On Keep Going</span>.
+            <span className='text-red-500'> Focus On Keep Going</span>.
           </h1>
           <h4 className='my-4 font-medium text-gray-500'>
             Your physical health is just as important as your mental health.
@@ -21,12 +23,9 @@ function Home() {
             </Link>
           </div>
         </div>
-        <div className='md:w-1/2 pl-12'>
+        <div className='w-5/6 md:w-1/2 pl-12'>
           <div className='max-w-lg ml-auto'>
-            <img
-              src='../../public/undraw_activity_tracker.svg'
-              alt='Activity Tracker'
-            />
+            <img src='/workout.svg' alt='Activity Tracker' />
           </div>
         </div>
       </main>

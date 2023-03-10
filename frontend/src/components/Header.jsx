@@ -19,18 +19,25 @@ const Header = () => {
           <h2 className='flex-auto'>
             <Link
               to='/'
-              className='text-[#21C065] font-semibold sm:text-2xl text-lg'
+              className='text-red-500 font-semibold sm:text-2xl text-lg'
             >
               Exercise Tracker
             </Link>
           </h2>
           <ul className='flex-none flex my-auto'>
             {user ? (
-              <li className='rounded max-w-max py-1 px-4 text-black'>
-                <button onClick={handleClick} className='font-medium'>
-                  Logout
-                </button>
-              </li>
+              <>
+                <li className='rounded max-w-max py-1 px-4 text-black'>
+                  <Link to='/dashboard' className='font-medium'>
+                    Dashboard
+                  </Link>
+                </li>
+                <li className='rounded max-w-max py-1 px-4 text-black'>
+                  <button onClick={handleClick} className='font-medium'>
+                    Logout
+                  </button>
+                </li>
+              </>
             ) : (
               <>
                 <li className='rounded max-w-max py-1 px-4 text-black'>
