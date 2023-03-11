@@ -14,19 +14,19 @@ const Sidebar = () => {
       <button onClick={handleShow} className='block md:hidden ml-4 my-2'>
         <FaBars className=' h-8 w-8 text-red-500' />
       </button>{' '}
-      <aside className='fixed hidden md:block top-16 left-0 bg-white shadow-lg h-screen w-64 flex flex-col'>
+      <aside className='fixed hidden md:block top-16 left-0 bg-white shadow-lg h-screen w-64'>
         <nav>
-          <div className='block md:hidden rounded-xl mx-auto my-2 flex justify-end'>
+          <div className='block md:hidden rounded-xl mx-auto my-2 '>
             {' '}
             <button onClick={handleClose}>
               <AiOutlineClose className=' h-8 w-8 text-red-500' />
             </button>{' '}
           </div>
-          <div class='bg-[#F2F3F5] w-56 mx-auto h-20 rounded-xl flex justify-around items-center px-4 my-5'>
-            <img src='/vite.svg' alt='avatar' class='w-14 rounded-full' />
+          <div className='bg-[#F2F3F5] w-56 mx-auto h-20 rounded-xl flex justify-around items-center px-4 my-5'>
+            <img src='/vite.svg' alt='avatar' className='w-14 rounded-full' />
             <div>
-              <h4 class='font-medium text-base'>Abdul Waheed</h4>
-              <h6 class='font-normal text-xs'>abdulwaheed.apk</h6>
+              <h4 className='font-medium text-base'>Abdul Waheed</h4>
+              <h6 className='font-normal text-xs'>abdulwaheed.apk</h6>
             </div>
           </div>
           <ul className='space-y-2 mt-2'>
