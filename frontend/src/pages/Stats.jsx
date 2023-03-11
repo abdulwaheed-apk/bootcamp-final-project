@@ -1,12 +1,17 @@
-import React from 'react'
-
+import { useSelector } from 'react-redux'
+import { useNavigate } from 'react-router-dom'
 const Stats = () => {
+  const { user } = useSelector((state) => state.auth)
+  const navigate = useNavigate()
+
+  const { name } = user.user // parent user object is user state coming from store and child user is coming from server( on login request we are sending back token, user, and message)
+
   return (
     <>
-      <section className='flex-auto px-4 pt-8 mx-auto sm:ml-72 bg-white'>
+      <section className='flex-auto px-4 pt-8 mx-auto bg-white'>
         <div className='bg-[#f2f3f5] rounded-2xl h-auto md:h-80 max-w-4xl px-8 py-8 md:py-16'>
           <p className='font-semibold text-xl md:text-2xl'>
-            Welcome back! Abdul Waheed
+            Welcome back! {name}
           </p>
           <div className='font-medium text-sm my-4'>
             <p>
@@ -18,6 +23,7 @@ const Stats = () => {
           <button
             type='button'
             className='bg-red-500 rounded-lg text-xs font-semibold text-white px-4 py-2'
+            onClick={() => navigate(-1)}
           >
             Add New Exercise
           </button>

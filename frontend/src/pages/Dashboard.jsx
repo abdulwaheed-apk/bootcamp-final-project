@@ -16,9 +16,9 @@ function Dashboard() {
   return (
     <>
       <Header />
-      <section className='flex items-center space-x-4'>
+      <section className='grid grid-cols-5 place-items-start max-w-7xl mx-auto relative'>
         <Sidebar />
-        <section className='bg-white'>
+        <section className='bg-white col-span-5 md:col-span-4'>
           <Outlet />
         </section>
       </section>
