@@ -22,7 +22,7 @@ const Activities = () => {
   )
   useEffect(() => {
     dispatch(getExercises())
-  }, [])
+  }, [isSuccess])
   // Handle Change
   const handleChange = (e) => {
     setFormData((prev) => ({ ...prev, [e.target.name]: e.target.value }))

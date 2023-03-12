@@ -37,6 +37,7 @@ const createExercise = async (req, res) => {
 //@route GET /api/exercises
 //@desc Get all exercises
 //@access Private
+
 // const getExercises = async (req, res) => {
 //   try {
 //     const exercises = await Exercise.find()
@@ -56,7 +57,8 @@ const getExercises = async (req, res) => {
     }
     res.status(200).json(exercises)
   } catch (error) {
-    res.status(500).json({ message: error.message })
+    res.status(500)
+    console.log(error.message)
   }
 }
 
@@ -117,8 +119,8 @@ const deleteExercise = async (req, res) => {
   }
   // exercise.remove()
   const removedExercise = await Exercise.findByIdAndRemove(exercise._id)
-  console.log(removedExercise)
-  res.status(200).json({ message: 'Exercise Removed', removedExercise })
+  // console.log(removedExercise)
+  res.status(200).json({ message: 'Exercise Removed' })
 }
 // todo Create This endpoint
 //@route GET /api/exercises/:type

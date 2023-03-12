@@ -21,9 +21,38 @@ const getExercises = async (token) => {
   // console.log('response.data', response.data)
   return response.data
 }
+// Delete Exercise
+const deleteExercise = async (exerciseId, token) => {
+  const config = {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  }
+  const response = await axios.delete(
+    exerciseEndpoint + `/${exerciseId}`,
+    config
+  )
+  // console.log('response.data', response.data)
+  return response.data
+}
+// Edit-Update Exercise
+const updateExercise = async (exerciseId, token) => {
+  // console.log('exerciseId reached in service', exerciseId)
+  const config = {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  }
+  const response = await axios.put(exerciseEndpoint + `/${exerciseId}`, config)
+
+  console.log('response from server', response.data)
+  return response.data
+}
 
 const exerciseService = {
   createExercise,
   getExercises,
+  deleteExercise,
+  updateExercise,
 }
 export default exerciseService

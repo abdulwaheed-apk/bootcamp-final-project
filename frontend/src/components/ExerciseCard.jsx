@@ -1,26 +1,39 @@
 import { FiEdit } from 'react-icons/fi'
 import { FaTrash } from 'react-icons/fa'
 import { useDispatch, useSelector } from 'react-redux'
-import { getExercises, reset } from '../features/activities/exerciseSlice'
+import {
+  getExercises,
+  reset,
+  updateExercise,
+  deleteExercise,
+} from '../features/activities/exerciseSlice'
 import { useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import Spinner from '../components/Sidebar'
 
 //
 const ExerciseCard = () => {
+  const dispatch = useDispatch()
+  const navigate = useNavigate()
   const { exercises, isError, isSuccess, isLoading, message } = useSelector(
     (state) => state.exercises
   )
 
   // Promise side effects
-  // console.log('yyyyyy', exercises)
-  // console.log(exercises.length)
-  const handleDelete = () => {
-    console.log('Delete me By _id')
+  // useEffect(() => {
+  //   if (isSuccess) {
+  //     dispatch(getExercises())
+  //   }
+  // }, [isSuccess])
+  const handleEdit = (exercise) => {
+    // console.log('Edit me By _id', exercise._id)
+    const exerciseId = exercise._id
+    // console.log('Edit me By Id', exerciseId)
+    // dispatch(updateExercise(exerciseId))
   }
-  const handleEdit = () => {
-    console.log('Edit me By _id')
-  }
+  // if (isLoading) {
+  //   return <Spinner />
+  // }
   return (
     <>
       <section className='grid grid-cols-1 lg:grid-cols-2 gap-4 py-8 px-4'>
@@ -38,11 +51,15 @@ const ExerciseCard = () => {
                     <button
                       type='button'
                       className='mx-1'
-                      onClick={handleDelete}
+                      onClick={() => dispatch(deleteExercise(exercise._id))}
                     >
                       <FaTrash />
                     </button>
-                    <button type='button' className='mx-1' onClick={handleEdit}>
+                    <button
+                      type='button'
+                      className='mx-1'
+                      onClick={() => handleEdit(exercise)}
+                    >
                       <FiEdit />
                     </button>
                   </div>
