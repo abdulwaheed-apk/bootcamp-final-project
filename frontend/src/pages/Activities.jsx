@@ -84,7 +84,6 @@ const Activities = () => {
                 <option value='Running'>Running</option>
                 <option value='Swimming'>Swimming</option>
                 <option value='Bicycling'>Bicycling</option>
-                <option value='Riding'>Riding</option>
                 <option value='Walking'>Walking</option>
                 <option value='Hiking'>Hiking</option>
               </select>

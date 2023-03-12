@@ -42,6 +42,7 @@ const Sidebar = () => {
               <li key={index}>
                 <NavLink
                   to={item.path}
+                  end
                   className={({ isActive }) =>
                     isActive
                       ? ' bg-red-500 text-white flex items-center h-12 w-56 mx-auto rounded-md'

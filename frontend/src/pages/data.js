@@ -5,7 +5,7 @@ import { BsFillBarChartFill } from 'react-icons/bs'
 const sidebarMenu = [
   {
     title: 'stats',
-    path: 'stats',
+    path: '',
     icon: BsFillBarChartFill,
   },
   {

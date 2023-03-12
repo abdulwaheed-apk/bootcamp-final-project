@@ -25,7 +25,7 @@ const createExercise = async (req, res) => {
       exerciseName,
       exerciseType,
       duration,
-      date,
+      date: date.toLocaleString('en-US'),
       details,
     })
     res.status(201).json(exercise)

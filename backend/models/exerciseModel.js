@@ -13,7 +13,6 @@ const exerciseSchema = new mongoose.Schema(
     exerciseType: {
       type: String,
       enum: ['Running', 'Swimming', 'Walking', 'Bicycling', 'Hiking'],
-      default: 'Running',
     },
     duration: {
       type: Number,
@@ -21,7 +20,7 @@ const exerciseSchema = new mongoose.Schema(
     },
     date: {
       type: Date,
-      default: Date.now(),
+      // default: Date.now(),
     },
     details: {
       type: String,
