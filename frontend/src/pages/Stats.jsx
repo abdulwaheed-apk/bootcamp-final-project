@@ -1,12 +1,35 @@
 import { FaClock, FaFire, FaRoad } from 'react-icons/fa'
 import { useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
+import axios from 'axios'
+import { useEffect, useState } from 'react'
+
+//
 const Stats = () => {
+  const [quote, setQuote] = useState({
+    text: '',
+    author: '',
+  })
   const { user } = useSelector((state) => state.auth)
   const navigate = useNavigate()
 
-  const { name } = user.user // parent user object is user state coming from store and child user is coming from server( on login request we are sending back token, user, and message)
+  const { name } = user // parent user object is user state coming from store and child user is coming from server( on login request we are sending back token, user, and message)
+  // console.log(user.name)
+  useEffect(() => {
+    async function getQuote(url) {
+      const response = await fetch(
+        'https://quote-garden.onrender.com/api/v3/quotes'
+      )
+      var dataFetched = await response.json()
+      const index = Math.floor(Math.random() * 10)
+      setQuote({
+        text: dataFetched.data[index].quoteText,
+        author: dataFetched.data[index].quoteAuthor,
+      })
+    }
 
+    getQuote()
+  }, [])
   return (
     <>
       <section className='flex-auto px-4 pt-11 md:pt-8 bg-white'>
@@ -15,11 +38,8 @@ const Stats = () => {
             Welcome back! {name}
           </p>
           <div className='font-medium text-sm my-4'>
-            <p>
-              The world breaks everyone, and afterward, many are strong at the
-              broken places.
-            </p>
-            <p className='mt-2 italic'>-Ernest Hemingway</p>
+            <p>{quote.text}</p>
+            <p className='mt-2 italic text-xl'>By: {quote.author}</p>
           </div>
           <button
             type='button'

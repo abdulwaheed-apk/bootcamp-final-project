@@ -68,7 +68,11 @@ const login = asyncHandler(async (req, res) => {
   if (isMatch) {
     const token = await generateToken(user._id)
     // res.cookie(token)
-    res.status(200).json({ user, message: 'you are authentic user', token })
+    const { name, username } = user
+    // console.log(name, username)
+    res
+      .status(200)
+      .json({ name, username, message: 'you are authentic user', token })
   } else {
     res.status(400)
     throw new Error('Invalid Credentials')

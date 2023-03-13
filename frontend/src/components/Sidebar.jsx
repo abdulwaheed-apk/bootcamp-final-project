@@ -15,7 +15,7 @@ const Sidebar = () => {
 
   const { user } = useSelector((state) => state.auth)
 
-  const { name, username } = user.user // parent user object is user state coming from store and child user is coming from server( on login request we are sending back token, user, and message)
+  const { name, username } = user // parent user object is user state coming from store and child user is coming from server( on login request we are sending back token, user, and message)
   // console.log(name)
   // console.log(username)
 
