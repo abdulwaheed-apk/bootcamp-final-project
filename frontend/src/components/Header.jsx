@@ -1,7 +1,10 @@
 import { Link, useNavigate } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import { logout, reset } from '../features/auth/authSlice'
+import { BsThreeDotsVertical } from 'react-icons/bs'
+import { useState } from 'react'
 const Header = () => {
+  const [toggle, setToggle] = useState(false)
   const dispatch = useDispatch()
   const navigate = useNavigate()
   const { user } = useSelector((state) => state.auth)
@@ -24,15 +27,20 @@ const Header = () => {
               Exercise Tracker
             </Link>
           </h2>
-          <ul className='flex-none flex my-auto'>
+
+          <ul
+            className={`flex-none ${
+              toggle ? 'flex' : 'hidden md:flex'
+            } my-auto`}
+          >
             {user ? (
               <>
-                <li className='rounded max-w-max py-1 px-4 text-black'>
+                <li className='rounded max-w-max py-1 px-1 md:px-4 text-black'>
                   <Link to='/dashboard' className='font-medium'>
                     Dashboard
                   </Link>
                 </li>
-                <li className='rounded max-w-max py-1 px-4 text-black'>
+                <li className='rounded max-w-max py-1 px-1 md:px-4 text-black'>
                   <button onClick={handleClick} className='font-medium'>
                     Logout
                   </button>
@@ -40,19 +48,26 @@ const Header = () => {
               </>
             ) : (
               <>
-                <li className='rounded max-w-max py-1 px-4 text-black'>
+                <li className='rounded max-w-max py-1 px-1 md:px-4 text-black'>
                   <Link to='/login' className='font-medium'>
                     Login
                   </Link>
                 </li>
-                <li className='rounded max-w-max py-1 px-4 text-black'>
+                <li className='rounded max-w-max py-1 px-1 md:px-4 text-black'>
                   <Link to='/register' className='font-medium'>
-                    Signup
+                    Sign up
                   </Link>
                 </li>
               </>
             )}
           </ul>
+          <button type='button' className='inline-block md:hidden'>
+            {' '}
+            <BsThreeDotsVertical
+              onClick={() => setToggle(!toggle)}
+              className='text-red-500 text-xl'
+            />
+          </button>
         </nav>
       </header>
     </>

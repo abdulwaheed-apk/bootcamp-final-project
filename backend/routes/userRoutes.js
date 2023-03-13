@@ -11,7 +11,7 @@ const User = require('../models/userModel')
 const verifyToken = require('../middlewares/auth')
 
 // Routes
-router.get('/', getUsers)
+router.get('/', verifyToken, getUsers)
 router.post(
   '/register',
   body('name', '-m- name is required').not().isEmpty().trim(),

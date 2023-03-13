@@ -9,7 +9,7 @@ const Stats = () => {
 
   return (
     <>
-      <section className='flex-auto px-4 pt-8 bg-white'>
+      <section className='flex-auto px-4 pt-11 md:pt-8 bg-white'>
         <div className='bg-[#f2f3f5] rounded-2xl h-auto md:h-80 max-w-4xl px-8 py-8 md:py-16'>
           <p className='font-semibold text-xl md:text-2xl'>
             Welcome back! {name}
@@ -50,7 +50,7 @@ const Stats = () => {
           </div>
           <div className='grid grid-rows-3 grid-flow-col gap-4'>
             {/* <!-- Time card --> */}
-            <div className='bg-white rounded-2xl drop-shadow-md max-w-xs max-h-36 my-1 px-4'>
+            <div className='bg-white rounded-2xl drop-shadow-md max-w-xs max-h-36 my-1 px-4 py-4'>
               <h4 className='font-semibold text-sm my-2 text-center'>
                 Total Hours Of Exercise(1 hour daily)
               </h4>
@@ -63,7 +63,7 @@ const Stats = () => {
               </div>
             </div>
             {/* <!-- Distance Card --> */}
-            <div className='bg-white rounded-2xl drop-shadow-md max-w-xs max-h-36 my-1 px-4'>
+            <div className='bg-white rounded-2xl drop-shadow-md max-w-xs max-h-36 my-1 px-4 py-4'>
               <h4 className='font-semibold text-sm my-2 text-center'>
                 Total Distance Covered
               </h4>
@@ -76,7 +76,7 @@ const Stats = () => {
               </div>
             </div>
             {/* <!-- Calories Card --> */}
-            <div className='bg-white rounded-2xl drop-shadow-md max-w-xs max-h-36 my-1 px-4'>
+            <div className='bg-white rounded-2xl drop-shadow-md max-w-xs max-h-36 my-1 px-4 py-4'>
               <h4 className='font-semibold text-sm my-2 text-center'>
                 Today's Calories Burned
               </h4>
