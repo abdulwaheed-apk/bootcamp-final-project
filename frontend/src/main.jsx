@@ -13,7 +13,7 @@ import Activities from './pages/Activities'
 import Stats from './pages/Stats'
 import { ToastContainer } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
-
+import NotFound from './components/NotFound'
 const router = createBrowserRouter([
   {
     path: '/',
@@ -22,6 +22,10 @@ const router = createBrowserRouter([
   {
     path: '/login',
     element: <Login />,
+  },
+  {
+    path: '*',
+    element: <NotFound />,
   },
   {
     path: '/register',

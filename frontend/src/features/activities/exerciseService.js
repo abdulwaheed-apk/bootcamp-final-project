@@ -36,16 +36,23 @@ const deleteExercise = async (exerciseId, token) => {
   return response.data
 }
 // Edit-Update Exercise
-const updateExercise = async (exerciseId, token) => {
-  // console.log('exerciseId reached in service', exerciseId)
+const updateExercise = async (update, token) => {
+  const { exerciseName, date, exerciseType, id, details, duration } = update
   const config = {
     headers: {
       Authorization: `Bearer ${token}`,
     },
   }
-  const response = await axios.put(exerciseEndpoint + `/${exerciseId}`, config)
+  const dataToUpdate = { exerciseName, exerciseType, duration, date, details }
+  // console.log('Hey', dataToUpdate)
+  const response = await axios.put(
+    exerciseEndpoint + `/${id}`,
+    dataToUpdate,
+    config
+  )
 
-  console.log('response from server', response.data)
+  console.log('response from server for update exercise', response.data)
+  // localStorage.removeItem('exercise')
   return response.data
 }
 

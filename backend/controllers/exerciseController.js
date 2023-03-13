@@ -71,7 +71,7 @@ const editExercise = async (req, res) => {
     // select exercise to update
     // console.log(req.params.exerciseId)
     const exercise = await Exercise.findById(req.params.exerciseId)
-    console.log(exercise)
+    // console.log(exercise)
     if (!exercise) {
       res.status(404).json({
         message:

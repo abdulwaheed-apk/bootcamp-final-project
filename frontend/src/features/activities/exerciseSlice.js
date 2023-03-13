@@ -67,11 +67,11 @@ export const deleteExercise = createAsyncThunk(
 // Update Exercise
 export const updateExercise = createAsyncThunk(
   'exercise/update',
-  async (exerciseId, thunkAPI) => {
+  async (update, thunkAPI) => {
     try {
       // console.log('exerciseId reached in Slice', exerciseId)
       const token = thunkAPI.getState().auth.user.token
-      return await exerciseService.updateExercise(exerciseId, token)
+      return await exerciseService.updateExercise(update, token)
     } catch (error) {
       const message =
         (error.response &&
@@ -131,6 +131,19 @@ export const exerciseSlice = createSlice({
         state.exercises = state.exercises.filter(
           (exercise) => exercise._id !== action.payload.id
         )
+      })
+      .addCase(updateExercise.pending, (state) => {
+        state.isLoading = true
+      })
+      .addCase(updateExercise.rejected, (state, action) => {
+        state.isLoading = false
+        state.isError = true
+        state.message = action.payload
+      })
+      .addCase(updateExercise.fulfilled, (state, action) => {
+        state.isLoading = false
+        state.isSuccess = true
+        state.exercises = action.payload
       })
   },
 })

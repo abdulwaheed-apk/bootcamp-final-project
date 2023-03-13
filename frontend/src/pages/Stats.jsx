@@ -1,3 +1,4 @@
+import { FaClock, FaFire, FaRoad } from 'react-icons/fa'
 import { useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 const Stats = () => {
@@ -28,7 +29,7 @@ const Stats = () => {
             Add New Exercise
           </button>
         </div>
-        {/* <!-- Stats Sections --> */}
+
         <section className='grid grid-cols-1 lg:grid-cols-2 gap-8 py-8 px-4'>
           <div className='bg-white rounded-2xl drop-shadow-md max-w-md py-5 px-4'>
             <p className='font-semibold text-xl'>Exercise Activity Types</p>
@@ -41,7 +42,7 @@ const Stats = () => {
                 <h6 className='font-medium text-xs'>Walk</h6>
               </div>
               {/* <!-- Circle --> */}
-              <div className=' w-40 md:w-64 h-40 md:h-64  rounded-full border-4 md:border-8 border-[#00AB55] border-dashed mx-auto'></div>
+              <div className=' w-40 md:w-64 h-40 md:h-64  rounded-full border-4 md:border-8 border-red-500 border-dashed mx-auto'></div>
             </div>
           </div>
           <div className='grid grid-rows-3 grid-flow-col gap-4'>
@@ -54,7 +55,7 @@ const Stats = () => {
                 <p className='font-semibold text-3xl'>180</p>
                 <p className='font-bold text-3xl'></p>
                 <p>
-                  <i className='fa-solid fa-clock text-4xl text-cyan-900'></i>
+                  <FaClock className='text-4xl text-cyan-900' />
                 </p>
               </div>
             </div>
@@ -67,7 +68,7 @@ const Stats = () => {
                 <p className='font-semibold text-3xl'>900 KM</p>
                 <p className='font-bold text-3xl'></p>
                 <p>
-                  <i className='fa-solid fa-road text-4xl text-amber-900'></i>
+                  <FaRoad className='text-amber-900 text-4xl' />
                 </p>
               </div>
             </div>
@@ -80,7 +81,7 @@ const Stats = () => {
                 <p className='font-semibold text-3xl'>300 Calories</p>
                 <p className='font-bold text-3xl'></p>
                 <p>
-                  <i className='fa-solid fa-fire text-4xl text-orange-600'></i>
+                  <FaFire className='text-4xl text-red-500' />
                 </p>
               </div>
             </div>

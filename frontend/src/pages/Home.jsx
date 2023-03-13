@@ -17,9 +17,9 @@ function Home() {
           <div className='my-4 py-6'>
             <Link
               to='/register'
-              className='rounded-md text-[#212b36] font-semibold bg-transparent border  border-[#919eab52] hover:border-[#212b36] px-10 py-3'
+              className='rounded-md text-[#212b36] font-semibold bg-transparent border  border-[#919eab52] hover:border-red-500 hover:bg-red-500 hover:text-white hover:scale-110 px-10 py-3'
             >
-              Get Started
+              Get Started 
             </Link>
           </div>
         </div>

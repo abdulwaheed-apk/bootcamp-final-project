@@ -83,6 +83,6 @@ const profileUpdate = asyncHandler(async (req, res) => {
 
 // Token Generate Function
 const generateToken = async (id) => {
-  return jwt.sign({ id }, process.env.JWT_SECRET, { expiresIn: '7h' })
+  return jwt.sign({ id }, process.env.JWT_SECRET, { expiresIn: '7d' })
 }
 module.exports = { getUsers, register, login, profileUpdate }
