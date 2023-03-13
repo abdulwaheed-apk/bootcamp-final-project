@@ -10,6 +10,8 @@ import {
   deleteExercise,
 } from '../features/activities/exerciseSlice'
 
+let calledOnce = true
+
 //
 const Activities = () => {
   const [formData, setFormData] = useState({
@@ -34,7 +36,11 @@ const Activities = () => {
   const { user } = useSelector((state) => state.auth)
   // ** Create exercise Side Effects */
   useEffect(() => {
-    dispatch(getExercises())
+    if (isSuccess || calledOnce) {
+      dispatch(getExercises())
+    }
+
+    calledOnce = false
   }, [isSuccess, update.id])
 
   // console.log('To Update', updateExercise)

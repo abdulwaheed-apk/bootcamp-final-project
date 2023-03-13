@@ -9,7 +9,7 @@ const Stats = () => {
 
   return (
     <>
-      <section className='flex-auto px-4 pt-8 mx-auto bg-white'>
+      <section className='flex-auto px-4 pt-8 bg-white'>
         <div className='bg-[#f2f3f5] rounded-2xl h-auto md:h-80 max-w-4xl px-8 py-8 md:py-16'>
           <p className='font-semibold text-xl md:text-2xl'>
             Welcome back! {name}
@@ -24,7 +24,7 @@ const Stats = () => {
           <button
             type='button'
             className='bg-red-500 rounded-lg text-xs font-semibold text-white px-4 py-2'
-            onClick={() => navigate(-1)}
+            onClick={() => navigate('/dashboard/activities')}
           >
             Add New Exercise
           </button>
@@ -42,7 +42,10 @@ const Stats = () => {
                 <h6 className='font-medium text-xs'>Walk</h6>
               </div>
               {/* <!-- Circle --> */}
-              <div className=' w-40 md:w-64 h-40 md:h-64  rounded-full border-4 md:border-8 border-red-500 border-dashed mx-auto'></div>
+              <button
+                type='button'
+                className='bg-red-500 rounded h-2 w-8'
+              ></button>
             </div>
           </div>
           <div className='grid grid-rows-3 grid-flow-col gap-4'>

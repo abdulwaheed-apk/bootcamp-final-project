@@ -66,7 +66,7 @@ const getExercises = async (req, res) => {
 //@desc  Update exercise
 //@access Private
 const editExercise = async (req, res) => {
-  const { exerciseName, exerciseType, duration, date, details } = req.body
+  // const { exerciseName, exerciseType, duration, date, details } = req.body
   try {
     // select exercise to update
     // console.log(req.params.exerciseId)

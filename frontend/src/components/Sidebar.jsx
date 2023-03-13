@@ -19,10 +19,13 @@ const Sidebar = () => {
     {}
   return (
     <>
-      <button onClick={handleShow} className='block md:hidden ml-4 my-2'>
+      <button
+        onClick={handleShow}
+        className='absolute z-50 top-0 left-2 block md:hidden ml-4 my-2'
+      >
         <FaBars className=' h-8 w-8 text-red-500' />
       </button>{' '}
-      <aside className='relative hidden md:inline-block top-16 left-0 bg-white shadow-lg h-screen w-64'>
+      <aside className='sticky hidden md:inline-block top-16 left-0 bg-white shadow-lg h-screen w-64 px-4'>
         <nav>
           <div className='block md:hidden rounded-xl mx-auto my-2 '>
             {' '}
