@@ -4,7 +4,7 @@ const Exercise = require('../models/exerciseModel')
 const User = require('../models/userModel')
 const { validationResult } = require('express-validator')
 
-//! Controller Functions
+//**  Controller Functions */
 
 //@route POST /api/exercises
 //@desc Create  New exercise
@@ -127,8 +127,18 @@ const deleteExercise = async (req, res) => {
 //@desc Get exercise By Type
 //@access Private
 const getExercisesByType = async (req, res) => {
-  // res.json({ type22: req.params.type })
-  res.send('getExercisesByType')
+  const user = await User.findById(req.user.id)
+  try {
+    if (!user) {
+      res.status(401).json({ message: 'You are not Authentic user.' })
+    }
+    const exercisesOfType = await Exercise.find({
+      exerciseType: req.params.type,
+    })
+    res.json({ 'check type': exercisesOfType })
+  } catch (error) {
+    res.status(501).json({ message: error.message })
+  }
 }
 
 module.exports = {
