@@ -1,3 +1,4 @@
+import { Fragment } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { FaTrash } from 'react-icons/fa'
 import { FiEdit } from 'react-icons/fi'
@@ -20,10 +21,10 @@ const ExerciseByType = () => {
   return (
     <>
       <section className='flex flex-col p-4 mx-auto bg-white relative top-8'>
-        <section className='grid grid-cols-1 grid-flow-col place-items-start md:grid-cols-2  gap-4 py-8 px-4'>
+        <section className='grid grid-cols-1 place-items-start lg:grid-cols-2  gap-4 py-8'>
           {exercises.length > 0
             ? exercises.map((exercise) => (
-                <div key={exercise._id}>
+                <Fragment key={exercise._id}>
                   {exercise.exerciseType.toLowerCase() &&
                   window.location.pathname.endsWith(
                     exercise.exerciseType.toLowerCase()
@@ -79,7 +80,7 @@ const ExerciseByType = () => {
                       </div>
                     </div>
                   ) : null}
-                </div>
+                </Fragment>
               ))
             : 'You do not have any exercise in this category Kindly add new exercise'}
         </section>

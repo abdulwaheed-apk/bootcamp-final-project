@@ -36,12 +36,18 @@ const Header = () => {
             {user ? (
               <>
                 <li className='rounded max-w-max py-1 px-1 md:px-4 text-black'>
-                  <Link to='/dashboard' className='font-medium'>
+                  <Link
+                    to='/dashboard'
+                    className='font-medium hover:text-red-500'
+                  >
                     Dashboard
                   </Link>
                 </li>
                 <li className='rounded max-w-max py-1 px-1 md:px-4 text-black'>
-                  <button onClick={handleClick} className='font-medium'>
+                  <button
+                    onClick={handleClick}
+                    className='font-medium hover:text-red-500'
+                  >
                     Logout
                   </button>
                 </li>
@@ -54,7 +60,7 @@ const Header = () => {
                   </Link>
                 </li>
                 <li className='rounded max-w-max py-1 px-1 md:px-4 text-black'>
-                  <Link to='/register' className='font-medium'>
+                  <Link to='/register' className='font-medium '>
                     Sign up
                   </Link>
                 </li>

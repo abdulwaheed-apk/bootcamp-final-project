@@ -212,7 +212,7 @@ const Activities = () => {
                     <div className='ml-auto mr-0 '>
                       <button
                         type='button'
-                        className='mx-1'
+                        className='mx-1 '
                         onClick={() => {
                           if (
                             window.confirm(
@@ -223,12 +223,15 @@ const Activities = () => {
                           }
                         }}
                       >
-                        <FaTrash />
+                        <FaTrash className='hover:text-red-500' />
                       </button>
                       <button
                         type='button'
                         className='mx-1'
-                        onClick={() => handleEdit(exercise)}
+                        onClick={() => {
+                          handleEdit(exercise)
+                          scrollTo(0, 0)
+                        }}
                       >
                         <FiEdit />
                       </button>
