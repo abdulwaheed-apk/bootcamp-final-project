@@ -1,7 +1,22 @@
+import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import Header from '../components/Header'
-
+import axios from 'axios'
 function Home() {
+  const [quote, setQuote] = useState('')
+
+  useEffect(() => {
+    let randomIndex = Math.floor(Math.random() * 1600)
+    async function quoteMachine() {
+      const response = await axios.get('https://type.fit/api/quotes')
+      const getQuote = await response.data[randomIndex]
+      setQuote(getQuote.text)
+      // console.log('response check', getQuote.text)
+      // console.log('response check', getQuote.author)
+    }
+    quoteMachine()
+  }, [])
+  // Your physical health is just as important as your mental health.
   return (
     <>
       <Header />
@@ -11,15 +26,13 @@ function Home() {
             Let us manage and track your activities, you
             <span className='text-red-500'> Focus On Keep Going</span>.
           </h1>
-          <h4 className='my-4 font-medium text-gray-500'>
-            Your physical health is just as important as your mental health.
-          </h4>
+          <h4 className='my-4 font-semibold text-gray-500 italic'>{quote}</h4>
           <div className='my-4 py-6'>
             <Link
               to='/register'
               className='rounded-md text-[#212b36] font-semibold bg-transparent border  border-[#919eab52] hover:border-red-500 hover:bg-red-500 hover:text-white hover:scale-110 px-10 py-3'
             >
-              Get Started 
+              Get Started
             </Link>
           </div>
         </div>

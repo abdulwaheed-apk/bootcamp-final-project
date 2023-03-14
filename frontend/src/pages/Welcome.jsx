@@ -5,7 +5,7 @@ import axios from 'axios'
 import { useEffect, useState } from 'react'
 
 //
-const Stats = () => {
+const Welcome = () => {
   const [quote, setQuote] = useState({
     text: '',
     author: '',
@@ -16,16 +16,16 @@ const Stats = () => {
   const { name } = user // parent user object is user state coming from store and child user is coming from server( on login request we are sending back token, user, and message)
   // console.log(user.name)
   useEffect(() => {
-    async function getQuote(url) {
-      const response = await fetch(
-        'https://quote-garden.onrender.com/api/v3/quotes'
-      )
+    async function getQuote() {
+      const response = await fetch('https://type.fit/api/quotes')
       var dataFetched = await response.json()
-      const index = Math.floor(Math.random() * 10)
+      const index = Math.floor(Math.random() * 1000)
       setQuote({
-        text: dataFetched.data[index].quoteText,
-        author: dataFetched.data[index].quoteAuthor,
+        text: dataFetched[index].text,
+        author: dataFetched[index].author,
       })
+      // console.log('dataFetched --> text ', dataFetched[index].text)
+      // console.log('dataFetched --> author ', dataFetched[index].author)
     }
 
     getQuote()
@@ -115,4 +115,4 @@ const Stats = () => {
   )
 }
 
-export default Stats
+export default Welcome

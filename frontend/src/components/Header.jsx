@@ -31,7 +31,7 @@ const Header = () => {
           <ul
             className={`flex-none ${
               toggle ? 'flex' : 'hidden md:flex'
-            } my-auto`}
+            } my-auto ml-auto`}
           >
             {user ? (
               <>

@@ -36,7 +36,7 @@ function Login() {
     // console.log('formData', formData)
     // we can also send formData to login function as payload but as we had destructured above so it is good idea to make again object and all values to object instead to single input values(email and password) or formData
     const userData = {
-      email,
+      email: email.toLowerCase(),
       password,
     }
     dispatch(login(userData))
